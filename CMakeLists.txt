@@ -19,9 +19,10 @@ add_compile_definitions(PLUGIN_NAME="${PLUGIN_NAME}")
 add_compile_definitions(PLUGIN_VERSION="${PLUGIN_VERSION}")
 
 # CommonLibSSE-NG resolves game addresses and struct layouts at runtime, so one DLL serves
-# every supported runtime. SE and AE are both enabled; VR is off because the landscape
-# pipeline offsets have only been reverse engineered for the flat runtimes (see
-# include/Offsets.hpp) and VR needs its own address set.
+# every supported runtime. SE and AE are both enabled - AE here covers the 1.7.x releases
+# (1.7.99 and 1.7.104, which need Address Library format 5 and SKSE 2.3.x) as well as the
+# older 1.6.x ones. VR is off; turn it on only once the plugin's offsets have been
+# reverse engineered for the VR address set as well.
 set(BUILD_TESTS OFF CACHE BOOL "" FORCE)
 set(ENABLE_SKYRIM_SE ON CACHE BOOL "" FORCE)
 set(ENABLE_SKYRIM_AE ON CACHE BOOL "" FORCE)
